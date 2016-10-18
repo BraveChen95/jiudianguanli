@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>酒店管理</title>
+</head>
+<body>
+<table align="center" style="margin-top:100px">
+<tr>
+    <td><a href="/zenjia"><input type="submit" value="增加房间信息"> </a></td>
+    <td><a href="/update"><input type="submit" value="修改房间信息"> </a></td>
+    <td><a href="/see"><input type="submit" value="查询统计信息"> </a></td>
+</tr>
+</table>
+<table border="1px" align="center" cellspacing="0">
+    <tr  >
+        <th></th>
+        <th>房间号码</th>
+        <th>房间类型</th>
+        <th>楼层</th>
+        <th>房间状态</th>
+        <th>房间价格</th>
+        <th></th>
+    </tr>
+    {% for guanli in guanli %}
+        <tr>
+        <td><input name="sex" type="radio" value="{{ guanli.id }}"></td>
+        <td>{{ guanli.num }}</td>
+        <td>{{ guanli.tex }}</td>
+        <td>{{ guanli.ceng }}</td>
+        <td>{{ guanli.zhuangtai }}</td>
+        <td>{{ guanli.jiage }}</td>
+        <td><a href="/?guan_id={{ guanli.id }}"><input type="submit" value="删除"></a></td>
+        </tr>
+    {% endfor %}
+
+  </table>
+</body>
+</html>

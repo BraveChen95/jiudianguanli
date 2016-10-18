@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<br><h3 align="center">修改房间信息</h3>
+<hr>
+
+<table align="center">
+    <form action="/update/" method="POST">{% csrf_token %}
+    <tr>
+        <td>房间号码</td>
+        <td>
+            <select name="num">
+                {% for foo in allroom %}
+                <option value="{{ foo.num }}" >{{ foo.num }}</option>
+                {% endfor %}
+            </select>
+        </td>
+    </tr>
+     <tr>
+        <td>房型</td>
+        <td>
+            <select name="tex">
+                {% for tex in texs %}
+                <option value="{{ tex.id }}" >{{ tex.name }}</option>
+                {% endfor %}
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td>楼层</td>
+        <td><select name="ceng">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+        </select></td>
+    </tr>
+    <tr>
+        <td>房间状态</td>
+        <td><select name="zhuangtai">
+            <option>住净</option>
+            <option>空净</option>
+            <option>空脏</option>
+            <option>住脏</option>
+        </select></td>
+    </tr>
+      <tr>
+        <td>价格</td>
+        <td><input type="text" name="jiage"></td>
+      </tr>
+    <tr>
+        <td><input type="submit" value="保存"></td>
+    </tr>
+</form>
+</table>
+
+</body>
+</html>
